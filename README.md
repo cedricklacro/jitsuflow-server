@@ -24,6 +24,7 @@ Creates a new note with title, category, content, tags, and paths.
   "counter_for": ["Posture Up"],
   "can_be_countered_by": ["Stack Pass"]
 }
+```
 
 
 #### 📌 Response
@@ -32,6 +33,7 @@ Creates a new note with title, category, content, tags, and paths.
   "message": "Note created successfully",
   "note_id": 2
 }
+```
 
 ---
 
@@ -46,6 +48,7 @@ Returns a list of all notes with their `note_id` and `title`.
   { "note_id": 2, "title": "Triangle Choke" },
   { "note_id": 3, "title": "Guard Retention" }
 ]
+```
 
 ---
 
@@ -62,6 +65,7 @@ Returns a list of note categories.
   { "category_id": 4, "name": "Submissions" },
   { "category_id": 5, "name": "Others" }
 ]
+```
 
 ---
 
@@ -87,6 +91,7 @@ GET /notes/category/all  # Get all notes
     "tags": ["submission"]
   }
 ]
+```
 
 ---
 
@@ -113,6 +118,7 @@ GET /notes/2
     "can_be_countered_by": [{ "note_id": 5, "title": "Stack Pass" }]
   }
 }
+```
 
 ---
 
@@ -140,6 +146,7 @@ Retrieves comments for a specific note.
     "created_at": "2025-02-24T12:15:42.000Z"
   }
 ]
+```
 
 ---
 
@@ -161,6 +168,7 @@ If a new path is added and the linked note doesn’t exist, it will be automatic
   "can_be_countered_by": ["Stack Pass"],
   "user_id": 1
 }
+```
 
 #### **📌 Response**  
 ```json
@@ -173,6 +181,7 @@ If a new path is added and the linked note doesn’t exist, it will be automatic
     "category_id": 4
   }
 }
+```
 
 ---
 
@@ -191,6 +200,7 @@ Uploads an image to the server.
   "message": "File uploaded successfully",
   "image_url": "/images/triangle_choke.jpg"
 }
+```
 
 ## 📌 Notes  
 - The API is **RESTful**, and all requests are **JSON-based**.  
