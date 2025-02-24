@@ -25,16 +25,21 @@ Creates a new note with title, category, content, tags, and paths.
   "can_be_countered_by": ["Stack Pass"]
 }
 
-Response
 
+#### 📌 Response
+```json
 {
   "message": "Note created successfully",
   "note_id": 2
 }
 
-2️⃣ Get All Note Titles
-GET /notes/titles
-Returns a list of all notes with their note_id and title.
+---
+
+### **2️⃣ Get All Note Titles**  
+#### **`GET /notes/titles`**  
+Returns a list of all notes with their `note_id` and `title`.  
+
+#### **📌 Response**
 ```json
 [
   { "note_id": 1, "title": "Double Leg Takedown" },
@@ -42,9 +47,13 @@ Returns a list of all notes with their note_id and title.
   { "note_id": 3, "title": "Guard Retention" }
 ]
 
-3️⃣ Get Categories
-GET /notes/categories
-Returns a list of note categories.
+---
+
+### **3️⃣ Get Categories**  
+#### **`GET /notes/categories`**  
+Returns a list of note categories.  
+
+#### **📌 Response**  
 ```json
 [
   { "category_id": 1, "name": "Takedowns" },
@@ -54,14 +63,16 @@ Returns a list of note categories.
   { "category_id": 5, "name": "Others" }
 ]
 
-4️⃣ Get Notes by Category
-GET /notes/category/:categoryId
-Fetches notes under a specific category. Use "all" to get all notes.
+---
 
-📌 Example Requests
+### **4️⃣ Get Notes by Category**  
+#### **`GET /notes/category/:categoryId`**  
+Fetches notes under a specific category. Use `"all"` to get all notes.  
 
-GET /notes/category/2 → Get notes under "Defenses"
-GET /notes/category/all → Get all notes
+#### **📌 Example Requests**  
+```sh
+GET /notes/category/2   # Get notes under "Defenses"
+GET /notes/category/all  # Get all notes
 
 ```json
 [
@@ -77,11 +88,14 @@ GET /notes/category/all → Get all notes
   }
 ]
 
-5️⃣ Get Note Details
-GET /notes/:noteId
-Returns full details of a specific note, including title, content, tags, paths, and category.
+---
 
-📌 Example Request
+### **5️⃣ Get Note Details**  
+#### **`GET /notes/:noteId`**  
+Returns full details of a specific note, including title, content, tags, paths, and category.  
+
+#### **📌 Example Request**  
+```sh
 GET /notes/2
 
 ```json
@@ -100,10 +114,13 @@ GET /notes/2
   }
 }
 
-6️⃣ Get Comments for a Note
-GET /notes/:noteId/comments
-Retrieves comments for a specific note.
-📌 Response
+---
+
+### **6️⃣ Get Comments for a Note**  
+#### **`GET /notes/:noteId/comments`**  
+Retrieves comments for a specific note.  
+
+#### **📌 Response**  
 ```json
 [
   {
@@ -124,12 +141,14 @@ Retrieves comments for a specific note.
   }
 ]
 
-7️⃣ Update Note Details
-PUT /notes/:noteId
-Updates a note's title, content, category, tags, and paths.
-If a new path is added and the linked note doesn’t exist, it will be automatically created.
+---
 
-📌 Request Body
+### **7️⃣ Update Note Details**  
+#### **`PUT /notes/:noteId`**  
+Updates a note's title, content, category, tags, and paths.  
+If a new path is added and the linked note doesn’t exist, it will be automatically created.  
+
+#### **📌 Request Body**  
 ```json
 {
   "title": "Updated Triangle Choke",
@@ -143,7 +162,7 @@ If a new path is added and the linked note doesn’t exist, it will be automatic
   "user_id": 1
 }
 
-📌 Response
+#### **📌 Response**  
 ```json
 {
   "message": "Note updated successfully",
@@ -155,37 +174,52 @@ If a new path is added and the linked note doesn’t exist, it will be automatic
   }
 }
 
-8️⃣ File Upload (Image)
-POST /upload
-Uploads an image to the server.
+---
 
-📌 Request Format
-Content-Type: multipart/form-data
-Field name: image
-File is stored in /public/images/
-📌 Example Response
+### **8️⃣ File Upload (Image)**  
+#### **`POST /upload`**  
+Uploads an image to the server.  
+
+#### **📌 Request Format**  
+- **Content-Type:** `multipart/form-data`  
+- **Field Name:** `image`  
+- **File is stored in:** `/public/images/`  
+
+#### **📌 Example Response**  
 ```json
 {
   "message": "File uploaded successfully",
   "image_url": "/images/triangle_choke.jpg"
 }
 
-📌 Notes
-The API is RESTful, and all requests are JSON-based.
-Image uploads must be in multipart/form-data format.
-Notes content supports rich text (HTML-based) using Quill.js.
+## 📌 Notes  
+- The API is **RESTful**, and all requests are **JSON-based**.  
+- Image uploads must be in **multipart/form-data** format.  
+- Notes content supports **rich text (HTML-based) using Quill.js**.  
 
-🚀 Setup Instructions
-Clone the repository:
-sh
-Copy
-Edit
-git clone https://github.com/your-repo/jitsuflow-api.git
-Install dependencies:
-npm install
-Run database migrations:
-npm run migrate
-Seed the database:
-npm run seed
-Start the server:
-npm run start
+---
+
+## 🚀 Setup Instructions  
+
+1. **Clone the Repository:**  
+   - `git clone https://github.com/your-repo/jitsuflow-api.git`  
+   - `cd jitsuflow-api`  
+
+2. **Create the MySQL database:**  
+   - Name the database: **`jitsuflow`**  
+
+3. **Set up environment variables:**  
+   - Create a `.env` file based on `.env.sample`  
+
+4. **Install dependencies:**  
+   - Run `npm install`  
+
+5. **Run database migrations:**  
+   - `npm run migrate`  
+
+6. **Seed the database with initial data:**  
+   - `npm run seed`  
+
+7. **Start the server:**  
+   - `npm run start`  
+
